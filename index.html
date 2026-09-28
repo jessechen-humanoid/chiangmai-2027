@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>看我笑話清邁行</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#F2F3F0; --surface:#FFFFFF; --ink:#1B2238; --muted:#5B6275; --line:#D9DCE3;
+  --indigo:#253A6E; --indigo-soft:#E4E9F4; --gold:#B8790A; --gold-soft:#F6EBD3;
+  --good:#2F7A4F; --warn:#A5561B; --warn-soft:#F7E6D8;
+  --serif:"Noto Serif TC","Songti TC",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#12151F; --surface:#1B2030; --ink:#E6E8EF; --muted:#9AA1B4; --line:#2E3548;
+    --indigo:#9DB2EA; --indigo-soft:#232C45; --gold:#E3AC45; --gold-soft:#3A2F1A;
+    --good:#7CC59A; --warn:#E59A61; --warn-soft:#3B2A1E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#12151F; --surface:#1B2030; --ink:#E6E8EF; --muted:#9AA1B4; --line:#2E3548;
+  --indigo:#9DB2EA; --indigo-soft:#232C45; --gold:#E3AC45; --gold-soft:#3A2F1A;
+  --good:#7CC59A; --warn:#E59A61; --warn-soft:#3B2A1E;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+a{color:var(--indigo);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.3;margin:0}
+h2{font-size:26px;font-weight:900}
+h3{font-size:18px;font-weight:600}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* header */
+header{padding-block:40px 28px;border-bottom:3px solid var(--indigo);display:grid;gap:14px}
+header h1{font-size:clamp(32px,6vw,52px);font-weight:900;letter-spacing:.02em}
+header h1 span{color:var(--gold)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px}
+.facts b{font-weight:700}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-20px;padding-inline:20px}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav a{display:block;padding:10px 12px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+section{padding-top:44px;display:grid;gap:18px;scroll-margin-top:48px}
+
+/* verdict */
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.vcard{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:6px;align-content:start}
+.vcard.lead{border-color:var(--indigo);box-shadow:inset 0 3px 0 var(--indigo)}
+.vcard .k{font-size:12px;color:var(--muted);letter-spacing:.08em}
+.vcard .v{font-family:var(--serif);font-size:19px;font-weight:600}
+.alert{background:var(--warn-soft);border-radius:6px;padding:14px 18px;display:grid;gap:6px}
+.alert b{color:var(--warn)}
+.alert ul{margin:0;padding-left:20px}
+
+/* table */
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:14px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.05em;background:var(--indigo-soft)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+tr.top td{background:var(--gold-soft)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--indigo-soft);color:var(--indigo);white-space:nowrap}
+.pill.gold{background:var(--gold-soft);color:var(--gold)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* villa cards */
+.villas{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.villa{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:10px;align-content:start}
+.villa header{all:unset;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.villa .rank{font-family:var(--mono);color:var(--gold);font-size:13px}
+.villa .price{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.villa .price b{display:block;font-family:var(--mono);font-size:18px;color:var(--ink);font-weight:500}
+.beds{font-size:13px;background:var(--bg);border-radius:4px;padding:8px 10px}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13.5px}
+.pc ul{margin:4px 0 0;padding-left:18px}
+.pc .h{font-weight:700;font-size:12px}
+.pc .pro .h{color:var(--good)} .pc .con .h{color:var(--warn)}
+@media (max-width:480px){.pc{grid-template-columns:1fr}}
+
+/* days */
+.overview{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.ov{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px;display:grid;gap:4px;align-content:start}
+.ov .d{font-family:var(--mono);font-size:13px;color:var(--gold)}
+.ov .t{font-family:var(--serif);font-weight:600;font-size:15px;line-height:1.4}
+@media (max-width:820px){.overview{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:460px){.overview{grid-template-columns:repeat(2,1fr)}}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:12px}
+.day .hd{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.day .hd .date{font-family:var(--mono);color:var(--gold);font-size:14px}
+.slots{display:grid;grid-template-columns:64px 1fr;gap:8px 14px;margin:0}
+.slots dt{font-size:12px;color:var(--muted);padding-top:3px;letter-spacing:.06em}
+.slots dd{margin:0}
+.note{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+
+/* restaurants */
+.rgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.rg{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:10px;align-content:start}
+.rg ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rg li{display:grid;gap:2px}
+.rg .n{font-weight:700}
+.rg .m{font-size:13px;color:var(--muted)}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:8px;align-content:start}
+.box ul{margin:0;padding-left:20px}
+details.box summary{cursor:pointer}
+footer{margin-top:48px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">看我笑話 ＋ 親友｜員工旅遊初稿 v2</div>
+  <h1>清邁 <span>9</span> 人行</h1>
+  <div class="facts">
+    <span><b>2027/1/11（一）→ 1/16（六）</b></span>
+    <span>住 <b class="num">5</b> 晚</span>
+    <span><b class="num">9</b> 人整棟包下</span>
+    <span>只用 Grab 和大眾運輸，不包車</span>
+  </div>
+  <div class="small muted">v2 改動：住宿只留「晚上不限制安靜」的；行程拿掉大象營和要包車的遠程景點，步調放慢。資料查詢日 2026/09/28，價格是 Airbnb 台灣站用「1/11–16、9 位成人」查到的台幣總價。</div>
+</header>
+
+<nav><ul>
+  <li><a href="#verdict">結論</a></li>
+  <li><a href="#stay">住宿比較</a></li>
+  <li><a href="#villas">住宿細節</a></li>
+  <li><a href="#plan">6 天行程</a></li>
+  <li><a href="#food">餐廳</a></li>
+  <li><a href="#move">交通與費用</a></li>
+  <li><a href="#todo">待確認</a></li>
+</ul></nav>
+
+<!-- 結論 -->
+<section id="verdict">
+  <div class="eyebrow">先講結論</div>
+  <h2>住 Santitham 那間：寫明「整晚派對」，還附卡拉 OK</h2>
+  <div class="verdict">
+    <div class="vcard lead">
+      <div class="k">住宿首選</div>
+      <div class="v">Santitham Lauxiros Villa</div>
+      <div class="small">房東自己寫「整晚派對！免費卡拉 OK 主持人」。5 間房各有 1 張 king 加 1 張單人床，9 個人每人都有自己的床，每天有人打掃。走路 15 分鐘到寧曼。</div>
+      <div class="num small">5 晚總價 NT$116,771｜每人約 NT$12,975</div>
+    </div>
+    <div class="vcard">
+      <div class="k">便宜一點</div>
+      <div class="v">White Pool Villa</div>
+      <div class="small">守則沒有任何安靜時段。離古城最近，不過評論說它在安靜的住宅區，訂之前要先跟房東講清楚你們會比較吵。</div>
+      <div class="num small">5 晚總價 NT$93,996｜每人約 NT$10,444</div>
+    </div>
+    <div class="vcard">
+      <div class="k">行程步調</div>
+      <div class="v">每天一個重點，其他自由</div>
+      <div class="small">景點都在市區，Grab 10–20 分鐘內到得了。上午睡飽再出門，下午留給泳池、按摩和咖啡。</div>
+    </div>
+  </div>
+  <div class="alert">
+    <div><b>先講清楚三件事</b></div>
+    <ul>
+      <li><b>「守則沒寫」不等於「可以吵」。</b>泰國鄰居可以報警，Airbnb 也可能扣押金。下訂前一定要先傳訊息問房東：9 個人、晚上會在客廳聊天排練到半夜，可不可以。我可以幫你擬這封英文訊息。</li>
+      <li><b>我查了約 45 間 4 房以上的整棟房源，大多數晚上 10–11 點起有安靜時段。</b>符合的只有 5 間，其中 2 間有明顯缺點（位置偏遠，或新房源沒有評價），所以就不硬湊更多間了。</li>
+      <li><b>住宿要在 2–3 週內決定。</b>符合條件的房源本來就少，被訂走就沒有了。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 住宿比較 -->
+<section id="stay">
+  <div class="eyebrow">住宿比較</div>
+  <h2>5 間不限制晚上安靜的整棟房源</h2>
+  <p class="small muted" style="margin:0">篩選方式：逐間讀 Airbnb 的房屋守則和房源說明全文，排除有「安靜時段」「不允許聚會」「幾點後降低音量」的。距離是用房源地圖座標算的直線距離，房東會故意標得不太準，誤差幾百公尺。</p>
+  <div class="tbl">
+  <table>
+    <thead><tr>
+      <th>房源</th><th>區域</th><th>到塔佩門／寧曼</th><th>房／床／衛浴</th><th>吵鬧友善度</th>
+      <th class="r">5 晚總價</th><th class="r">每人 5 晚</th><th>評分</th>
+    </tr></thead>
+    <tbody>
+      <tr class="top"><td><a href="https://www.airbnb.com.tw/rooms/1363412302716546421">Santitham Lauxiros Villa</a> <span class="pill gold">首選</span></td><td>Santitham</td><td class="num">2.2 km／1.1 km</td><td class="num">5／10／7</td><td><span class="pill">寫明歡迎派對、有卡拉 OK</span></td><td class="r num">116,771</td><td class="r num">12,975</td><td class="num">4.93（42）</td></tr>
+      <tr><td><a href="https://www.airbnb.com.tw/rooms/1334826741494071135">White Pool Villa</a></td><td>古城北側</td><td class="num">1.1 km／2.6 km</td><td class="num">5／7／7</td><td><span class="pill">沒寫限制，要先問</span></td><td class="r num">93,996</td><td class="r num">10,444</td><td class="num">4.95（60）</td></tr>
+      <tr><td><a href="https://www.airbnb.com.tw/rooms/1582460854255860749">ClairDeLune</a></td><td>Pa Daet（南邊）</td><td class="num">3.5 km／5.0 km</td><td class="num">4／5／5</td><td><span class="pill warn">要先問</span></td><td class="r num">99,357</td><td class="r num">11,040</td><td class="num">4.96（28）</td></tr>
+      <tr><td><a href="https://www.airbnb.com.tw/rooms/1776215045295267904">法式浪漫泳池別墅</a> <span class="pill warn">新房源</span></td><td>Pa Daet（南邊）</td><td class="num">約 4 km／約 6 km</td><td class="num">5／6／7</td><td><span class="pill">沒寫限制</span></td><td class="r num">76,063</td><td class="r num">8,451</td><td class="num">尚無評價</td></tr>
+      <tr><td><a href="https://www.airbnb.com.tw/rooms/1189772986995207520">寧靜泳池別墅（有 KTV）</a> <span class="pill warn">偏遠</span></td><td>Mae Hia（西南）</td><td class="num">6.8 km／6.7 km</td><td class="num">4／4＋2 地墊／4.5</td><td><span class="pill">有 KTV、評論說沒鄰居</span></td><td class="r num">72,136</td><td class="r num">8,015</td><td class="num">5.0（31）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="small muted" style="margin:0">金額是新台幣。Airbnb 顯示的總價通常已含清潔費和服務費，但最終金額以結帳頁為準。</p>
+  <details class="box">
+    <summary><b>被排除的房源</b>（上一版的 6 間有 4 間出局）</summary>
+    <ul class="small">
+      <li>Nimman Private Pool Villa：晚上 9 點到早上 8 點要安靜，9 點後不能游泳</li>
+      <li>Tungyu Old Town、Pillar Haus、Modern Thai、Poon Pool Villa：晚上 10 點起有安靜時段，也不允許聚會</li>
+      <li>Mammoth Art Studio：不允許聚會，泳池晚上 7 點就關</li>
+      <li>The Urban Forest、Urban Forest Corner：守則沒寫，但房源說明寫「晚上 9 點後請降低音量」</li>
+      <li>WabiHouse（One Nimman 旁）：說明寫「晚上 10 點後請保持安靜，附近有兒童和老年住戶」</li>
+      <li>其他 30 多間：大多是晚上 10–11 點起有安靜時段</li>
+    </ul>
+  </details>
+</section>
+
+<!-- 住宿細節 -->
+<section id="villas">
+  <div class="eyebrow">住宿細節</div>
+  <h2>9 個人怎麼睡</h2>
+  <div class="villas">
+
+    <article class="villa">
+      <header><h3><a href="https://www.airbnb.com.tw/rooms/1363412302716546421">Santitham Lauxiros Villa</a></h3><span class="rank">首選</span></header>
+      <div class="price"><span>5 晚<b>116,771</b></span><span>每人<b>12,975</b></span><span>上限<b>15 人</b></span></div>
+      <div class="beds">5 間房都是 king＋單人床，而且都有自己的衛浴</div>
+      <div class="pc">
+        <div class="pro"><div class="h">優點</div><ul><li>房東自己寫「整晚派對」，有卡拉 OK 設備和音響</li><li>每人都有自己的床</li><li>每日清潔，超讚房東，排名前 10%</li><li>走路到寧曼，Grab 到古城 10 分鐘</li></ul></div>
+        <div class="con"><div class="h">缺點</div><ul><li>5 間裡最貴</li><li>Santitham 是住宅和學生區，還是要問房東鄰居的狀況</li></ul></div>
+      </div>
+    </article>
+
+    <article class="villa">
+      <header><h3><a href="https://www.airbnb.com.tw/rooms/1334826741494071135">White Pool Villa</a></h3><span class="rank">離古城最近</span></header>
+      <div class="price"><span>5 晚<b>93,996</b></span><span>每人<b>10,444</b></span><span>上限<b>10 人</b></span></div>
+      <div class="beds">king＋沙發｜2 張小雙人床｜king｜2 張小雙人床｜king</div>
+      <div class="pc">
+        <div class="pro"><div class="h">優點</div><ul><li>守則完全沒有安靜時段或禁止聚會</li><li>5 間房都有衛浴，總共 7 間</li><li>分兩棟，客廳和睡覺區分開</li><li>1/6 前可免費取消</li></ul></div>
+        <div class="con"><div class="h">缺點</div><ul><li>評論說在「安靜的住宅區」，有鄰居</li><li>有 2 對要睡同一張床</li><li>柚木家具壞了要賠</li></ul></div>
+      </div>
+    </article>
+
+    <article class="villa">
+      <header><h3><a href="https://www.airbnb.com.tw/rooms/1582460854255860749">ClairDeLune</a></h3><span class="rank">靠機場</span></header>
+      <div class="price"><span>5 晚<b>99,357</b></span><span>每人<b>11,040</b></span><span>上限<b>10 人</b></span></div>
+      <div class="beds">king｜king｜king｜2 張單人床（第 9 人要加床或睡沙發）</div>
+      <div class="pc">
+        <div class="pro"><div class="h">優點</div><ul><li>4.96 分，超讚房東</li><li>到機場 9 分鐘，接送機方便</li><li>泳池、按摩浴缸、燒烤</li></ul></div>
+        <div class="con"><div class="h">缺點</div><ul><li>同一個房東的其他房源寫「9 點後降低音量」，這間很可能也一樣，要先問</li><li>離古城 3.5 km，每天都要叫車</li><li>床只夠 8 人</li></ul></div>
+      </div>
+    </article>
+
+    <article class="villa">
+      <header><h3><a href="https://www.airbnb.com.tw/rooms/1776215045295267904">法式浪漫泳池別墅</a></h3><span class="rank">新房源</span></header>
+      <div class="price"><span>5 晚<b>76,063</b></span><span>每人<b>8,451</b></span><span>上限<b>12 人</b></span></div>
+      <div class="beds">5 間 king｜客廳沙發床</div>
+      <div class="pc">
+        <div class="pro"><div class="h">優點</div><ul><li>現在有折扣（原價 90,324）</li><li>7 間衛浴</li><li>有火坑和按摩浴池</li></ul></div>
+        <div class="con"><div class="h">缺點</div><ul><li>新房東，還沒有任何評價</li><li>沒有回報是否有煙霧警報器</li><li>4 對要共睡</li></ul></div>
+      </div>
+    </article>
+
+    <article class="villa">
+      <header><h3><a href="https://www.airbnb.com.tw/rooms/1189772986995207520">寧靜泳池別墅（有 KTV）</a></h3><span class="rank">最吵得起來</span></header>
+      <div class="price"><span>5 晚<b>72,136</b></span><span>每人<b>8,015</b></span><span>上限<b>10 人</b></span></div>
+      <div class="beds">king＋地墊｜king＋地墊｜雙人床｜雙人床</div>
+      <div class="pc">
+        <div class="pro"><div class="h">優點</div><ul><li>客廳有 KTV</li><li>評論說「沒有鄰居的噪音」，應該也吵不到人</li><li>5.0 分，每天有人打掃</li><li>5 間裡最便宜</li></ul></div>
+        <div class="con"><div class="h">缺點</div><ul><li>離古城 6.8 km，Grab 單程 20 分鐘以上，不太符合「不要不方便」</li><li>只有 4 張床加 2 張地墊，3 對要共睡</li></ul></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 行程 -->
+<section id="plan">
+  <div class="eyebrow">6 天行程</div>
+  <h2>每天一個重點，其他時間在泳池邊</h2>
+  <p class="small muted" style="margin:0">以住 Santitham 或 White Pool Villa 為準，下面每個地方叫 Grab 都在 25 分鐘內。不看大象，也拿掉茵他儂和山村這種要包車一整天的地方。</p>
+  <div class="overview">
+    <div class="ov"><span class="d">1/11 一</span><span class="t">抵達、寧曼</span></div>
+    <div class="ov"><span class="d">1/12 二</span><span class="t">古城散步、爵士 jam</span></div>
+    <div class="ov"><span class="d">1/13 三</span><span class="t">素帖寺、藝術村</span></div>
+    <div class="ov"><span class="d">1/14 四</span><span class="t">料理課或躺平</span></div>
+    <div class="ov"><span class="d">1/15 五</span><span class="t">紙傘村、別墅派對</span></div>
+    <div class="ov"><span class="d">1/16 六</span><span class="t">市集、回程</span></div>
+  </div>
+
+  <article class="day">
+    <div class="hd"><span class="date">1/11（一）</span><h3>抵達，逛寧曼</h3><span class="pill warn">依航班調整</span></div>
+    <dl class="slots">
+      <dt>上午</dt><dd>搭華航或長榮，10:20 落地。叫 2 台 GrabCar XL（6 人座）去住宿放行李，機場到市區約 15 分鐘</dd>
+      <dt>中午</dt><dd>Khao Soi Mae Sai 泰北咖哩麵，離 Santitham 很近</dd>
+      <dt>下午</dt><dd>15:00 入住，先游泳休息</dd>
+      <dt>晚上</dt><dd>走去寧曼吃 Tong Tem Toh 泰北菜 → 逛 One Nimman</dd>
+    </dl>
+  </article>
+
+  <article class="day">
+    <div class="hd"><span class="date">1/12（二）</span><h3>古城慢慢走</h3></div>
+    <dl class="slots">
+      <dt>上午</dt><dd>睡飽再出門。Khao Soi Khun Yai（10:00 開，北邊護城河旁）</dd>
+      <dt>下午</dt><dd>古城散步：帕辛寺 → 大佛塔寺（Wat Chedi Luang），中間在 Akha Ama 喝咖啡，之後找間泰式按摩（約 300–400 泰銖）</dd>
+      <dt>晚上</dt><dd>Huen Phen 樓上包廂晚餐（先訂位）→ North Gate Jazz Co-op 週二開放 jam</dd>
+    </dl>
+    <div class="note">古城裡的景點都走得到，不用叫車。</div>
+  </article>
+
+  <article class="day">
+    <div class="hd"><span class="date">1/13（三）</span><h3>素帖寺、Baan Kang Wat 藝術村</h3></div>
+    <dl class="slots">
+      <dt>上午</dt><dd>素帖寺。叫 Grab 上山約 30 分鐘，或在清邁大學正門搭紅色雙條車上山</dd>
+      <dt>中午</dt><dd>Cherng Doi 烤雞（寧曼）</dd>
+      <dt>下午</dt><dd>Wat Umong 隧道寺 → Baan Kang Wat 藝術村 → No.39 森林咖啡廳，三個地方彼此很近</dd>
+      <dt>晚上</dt><dd><b>當週有喜劇 open mic 就去</b>。沒有的話，去 Old Chiang Mai Cultural Center 吃帝王餐、看泰北舞蹈</dd>
+    </dl>
+    <div class="note">The Moat House 最近一筆 open mic 紀錄是在週三。12 月先問 The Punch-Up 當週有沒有場，能不能讓你們上台。</div>
+  </article>
+
+  <article class="day">
+    <div class="hd"><span class="date">1/14（四）</span><h3>自由日</h3></div>
+    <dl class="slots">
+      <dt>上午</dt><dd>想動的人：泰式料理課半天（Thai Farm 半天 1,200 泰銖，會到住宿接送）。不想動的人：別墅泳池</dd>
+      <dt>中午</dt><dd>SP Chicken 烤雞，11:30 前到</dd>
+      <dt>下午</dt><dd>回別墅睡午覺、排練，或在寧曼逛街</dd>
+      <dt>晚上</dt><dd>The Riverside 河濱晚餐、聽現場樂團（先訂位）→ 走去夜市（Night Bazaar）逛</dd>
+    </dl>
+  </article>
+
+  <article class="day">
+    <div class="hd"><span class="date">1/15（五）</span><h3>Bo Sang 紙傘村，晚上別墅派對</h3></div>
+    <dl class="slots">
+      <dt>上午</dt><dd>睡到自然醒</dd>
+      <dt>下午</dt><dd>Grab 到 Bo Sang 紙傘村（約 30 分鐘），可以現場請師傅在包包或手機殼上畫圖。紙傘節如果這天開始，剛好碰到遊行和傘燈</dd>
+      <dt>晚上</dt><dd>在別墅辦卡拉 OK 之夜。Grab Food 叫外送，或去超市買食材用別墅的烤肉架</dd>
+    </dl>
+    <div class="note">紙傘節 2027 年的日期還沒公布（慣例是一月第三個週末）。沒有碰到節慶的話，紙傘村平常也能逛，可以選擇不去。</div>
+  </article>
+
+  <article class="day">
+    <div class="hd"><span class="date">1/16（六）</span><h3>Jing Jai 市集，回台灣</h3><span class="pill warn">依航班調整</span></div>
+    <dl class="slots">
+      <dt>上午</dt><dd>07:00 到 Jing Jai 市集吃早餐、買伴手禮，08:45 離開</dd>
+      <dt>中午</dt><dd>09:15 回住宿拿行李，09:30 到機場，搭 11:30 左右的班機</dd>
+    </dl>
+    <div class="note">延到 1/17 回：16 日晚上可以逛 Wua Lai 週六夜市，紙傘節也更可能遇到。</div>
+  </article>
+</section>
+
+<!-- 餐廳 -->
+<section id="food">
+  <div class="eyebrow">餐廳</div>
+  <h2>15 家，依用途分</h2>
+  <p class="small muted" style="margin:0">人均是泰銖。小店不接 9 人訂位，要早點去分桌坐。出發前用 Google Maps 再確認一次營業時間。</p>
+  <div class="rgroups">
+    <div class="rg">
+      <h3>泰北咖哩麵 Khao Soi</h3>
+      <ul>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Khao+Soi+Mae+Sai+Chiang+Mai">Khao Soi Mae Sai</a></span><span class="m">米其林指南推薦。08:00–16:00，週日休。人均 60–100。只收現金</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Khao+Soi+Khun+Yai+Chiang+Mai">Khao Soi Khun Yai</a></span><span class="m">10:00–14:00，週日休，常常賣完。11:30 前到</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Khao+Soi+Islam+Chiang+Mai">Khao Soi Islam</a></span><span class="m">穆斯林口味，也有黃薑飯。<span class="pill warn">營業時間待確認</span></span></li>
+      </ul>
+    </div>
+    <div class="rg">
+      <h3>泰北菜、烤雞</h3>
+      <ul>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Huen+Phen+Chiang+Mai">Huen Phen</a></span><span class="m">晚餐樓上有古董包廂，適合 9 人，電話 053-814548。推泰北香腸、緬式豬肉咖哩。人均 200–350</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Tong+Tem+Toh+Chiang+Mai">Tong Tem Toh</a></span><span class="m">寧曼，08:00–23:00，常排隊。推青辣椒醬、烤豬肉。人均 150–300</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=SP+Chicken+Chiang+Mai">SP Chicken</a></span><span class="m">整隻烤雞配青木瓜沙拉，下午兩點左右賣完</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Cherng+Doi+Roast+Chicken+Chiang+Mai">Cherng Doi</a></span><span class="m">寧曼，11:00–20:00，週一休。可以問團體訂位</span></li>
+      </ul>
+    </div>
+    <div class="rg">
+      <h3>大家一起吃的晚餐</h3>
+      <ul>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Old+Chiang+Mai+Cultural+Center">Old Chiang Mai Cultural Center</a></span><span class="m">帝王餐＋泰北舞蹈，1971 年開到現在。18:30 開始，可在 Klook 訂。人均約 570–1,000</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=The+Riverside+Bar+Restaurant+Chiang+Mai">The Riverside</a></span><span class="m">河濱，20:00 後有現場樂團，接團體，也有晚餐遊船。人均 400–700</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Deck+1+Chiang+Mai">Deck 1</a></span><span class="m">河濱景觀，人均 400–800。<span class="pill warn">2026 年營業狀態未確認</span></span></li>
+      </ul>
+    </div>
+    <div class="rg">
+      <h3>咖啡</h3>
+      <ul>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Ristr8to+Nimman+Chiang+Mai">Ristr8to</a></span><span class="m">寧曼，老闆是世界拉花冠軍。座位少，要分批</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Akha+Ama+Coffee+Chiang+Mai">Akha Ama</a></span><span class="m">古城，山上阿卡族自家種的豆子，手沖</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=No.39+Cafe+Chiang+Mai">No.39 Cafe</a></span><span class="m">素帖山腳的森林咖啡廳，空間大，好拍照</span></li>
+      </ul>
+    </div>
+    <div class="rg">
+      <h3>晚上喝一杯</h3>
+      <ul>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=North+Gate+Jazz+Co-op+Chiang+Mai">North Gate Jazz Co-op</a></span><span class="m">北門旁小酒吧，每天 19:30 開。週二開放 jam 最熱鬧，只能站</span></li>
+        <li><span class="n"><a href="https://www.google.com/maps/search/?api=1&query=Warm+Up+Cafe+Chiang+Mai">Warm Up Cafe</a></span><span class="m">寧曼，18:00–02:00，22:00 後有樂團，可訂桌</span></li>
+      </ul>
+    </div>
+    <div class="rg">
+      <h3>喜劇場</h3>
+      <ul>
+        <li><span class="n"><a href="https://www.facebook.com/p/The-Punch-Up-100083027753811/">The Punch-Up</a></span><span class="m">清邁在地喜劇主辦單位，辦過 open mic 和三天喜劇節。最值得聯絡</span></li>
+        <li><span class="n">The Moat House open mic</span><span class="m">不定期，20:00 開始，想上台提早 30 分鐘報名。最近一筆紀錄是 2025/4</span></li>
+      </ul>
+      <p class="small muted" style="margin:0">查不到固定每週的場次，要 12 月再問。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 交通與費用 -->
+<section id="move">
+  <div class="eyebrow">交通與費用</div>
+  <h2>只用 Grab 和大眾運輸，9 個人怎麼移動</h2>
+  <div class="two">
+    <div class="box">
+      <h3>交通</h3>
+      <ul>
+        <li><b>Grab／Bolt</b>：9 個人叫 2 台 GrabCar XL（6 人座），或 3 台一般車。市區一趟一台約 80–180 泰銖</li>
+        <li><b>接送機</b>：9 人加行李要 2 台 XL，機場離市區只有 15 分鐘</li>
+        <li><b>紅色雙條車</b>：市區每人 30–40 泰銖，只收現金。9 個人可以直接包一台，上車前先談價</li>
+        <li><b>RTC 市區公車</b>：機場到古城、寧曼，單程 30 泰銖</li>
+        <li>這版行程完全不需要包車</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>門票與體驗（每人，泰銖）</h3>
+      <ul>
+        <li>素帖寺：寺廟 30–50，纜車 50</li>
+        <li>料理課半天：1,200</li>
+        <li>帝王餐＋表演：約 570–1,000</li>
+        <li>泰式按摩 1 小時：約 300–400（推估）</li>
+        <li>Wat Umong、Baan Kang Wat、紙傘村：免費</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 待確認 -->
+<section id="todo">
+  <div class="eyebrow">待確認</div>
+  <h2>還沒定案的事</h2>
+  <div class="box">
+    <ul>
+      <li>住宿選哪間。決定後先傳訊息問房東能不能吵到半夜，得到書面同意再下訂</li>
+      <li>回程要 1/16 還是延到 1/17</li>
+      <li>2027 Bo Sang 紙傘節官方日期（通常 12 月公布）</li>
+      <li>12 月問 The Punch-Up：1/11–16 有沒有 open mic</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  資料來源：Airbnb 房源頁與房屋守則（2026/09/28 逐間查）、Michelin Guide、eatingthaifood.com、Time Out Chiang Mai、Thai Farm Cooking School 等。營業時間和價格會變動，出發前以官方為準。
+</footer>
+</div>
+
+</body>
+</html>
